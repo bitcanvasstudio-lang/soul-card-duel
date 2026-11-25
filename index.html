@@ -17,15 +17,15 @@
 <title>Soul Card Duel</title>
 <meta name="description" content="Soul Card Duel: a deckbuilder where position and direction make combat more tactical. Online leaderboard, Steam page and guides.">
 <meta property="og:title" content="Soul Card Duel">
-<meta property="og:image" content="https://i.postimg.cc/HkH9hwxS/LOGO-FINALfinal.png">
-<link rel="icon" href="https://i.postimg.cc/HkH9hwxS/LOGO-FINALfinal.png">
+<meta property="og:image" content="https://i.postimg.cc/Gh9hf63x/LOGO-FINALfinal.png">
+<link rel="icon" href="https://i.postimg.cc/Gh9hf63x/LOGO-FINALfinal.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#171a21;--panel:#1b2838;--panel2:#2a475e;--gold:#66c0f4;--gold2:#c7d5e0;--text:#c7d5e0;--muted:#8f98a0;--win:#4cd08a;--loss:#e5676b}
 *{box-sizing:border-box;margin:0}
-body{background:linear-gradient(rgba(23,26,33,.84),rgba(27,40,56,.90)),url(https://i.postimg.cc/sxFNQFgp/screen-trailer.png) center top/cover fixed;color:var(--text);font:400 15px/1.5 Poppins,system-ui,sans-serif}
+body{background:linear-gradient(rgba(23,26,33,.84),rgba(27,40,56,.90)),url(https://i.postimg.cc/0yw5kmJF/screen-trailer.png) center top/cover fixed;color:var(--text);font:400 15px/1.5 Poppins,system-ui,sans-serif}
 a{color:inherit;text-decoration:none}
 h1,h2,h3,.cz{font-family:Cinzel,Georgia,serif;letter-spacing:.06em}
 .nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;padding:10px 24px;background:rgba(23,26,33,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(102,192,244,.35)}
@@ -78,19 +78,15 @@ footer .rada{display:block;margin-top:6px;font:600 13px Cinzel,Georgia,serif;let
 </head>
 <body>
 <nav class="nav">
-  <a href="/"><img src="https://i.postimg.cc/HkH9hwxS/LOGO-FINALfinal.png" alt="Soul Card Duel"></a>
-  <div class="links">
-    <a class="on" href="/" data-i="nRank"></a>
-  </div>
+  <a href="/"><img src="https://i.postimg.cc/Gh9hf63x/LOGO-FINALfinal.png" alt="Soul Card Duel"></a>
+  <div class="links"><a class="on" href="/" data-i="nRank"></a></div>
   <div class="lang"><button data-l="en">EN</button><button data-l="es">ES</button></div>
   <button class="sound" id="snd" aria-label="Sound">♪</button>
 </nav>
-
 <header class="hero">
-  <img src="https://i.postimg.cc/HkH9hwxS/LOGO-FINALfinal.png" alt="Soul Card Duel">
+  <img src="https://i.postimg.cc/Gh9hf63x/LOGO-FINALfinal.png" alt="Soul Card Duel">
   <p data-i="tag"></p>
 </header>
-
 <main>
   <section class="box">
     <h2 class="cz" data-i="lbTitle"></h2>
@@ -98,92 +94,87 @@ footer .rada{display:block;margin-top:6px;font:600 13px Cinzel,Georgia,serif;let
     <div id="rows"></div>
     <p class="note" id="demo" hidden data-i="demo"></p>
   </section>
-
   <div class="card wcard" style="margin-top:28px"><h4><span class="n"><b>1</b></span><span data-i="c1t"></span></h4>
     <p data-i="c1p"></p>
     <iframe class="widget" src="https://store.steampowered.com/widget/3938290/" frameborder="0" loading="lazy" title="Soul Card Duel on Steam"></iframe></div>
-
   <div class="cards" style="margin-top:14px">
     <div class="card"><h4><span class="n"><b>2</b></span><span data-i="c3t"></span></h4><p data-i="c3p"></p><a class="btn" href="https://steamcommunity.com/app/3938290" target="_blank" rel="noopener" data-i="c3b"></a></div>
     <div class="card"><h4><span class="n"><b>3</b></span><span data-i="c4t"></span></h4><p data-i="c4p"></p><a class="btn" href="https://x.com/AndoryuLearu" target="_blank" rel="noopener" data-i="c4b"></a></div>
   </div>
-
   <img class="strip" src="assets/strip.webp" alt="">
-
   <h3 class="sec" data-i="vTitle"></h3>
   <div class="video" id="video"></div>
 </main>
 <footer><span data-i="footer"></span><span class="rada">Rada Up</span></footer>
-
 <script>
-// ====== CONFIGURA ESTO ======
-const API_URL = "https://script.google.com/macros/s/AKfycbz5w5xevw3Lg7uQQGsCILnHn8MpXQZIOGtfk0khbnKZrJ1g-jl9BnULkp-RKplCO8aj/exec"; // la URL que termina en /exec
-const YT_ID = "Ae8Fm2iGtzo";                      // Video tutorial Soul Card Duel
-// ============================
-
+const API_URL = "https://script.google.com/macros/s/AKfycbz5w5xevw3Lg7uQQGsCILnHn8MpXQZIOGtfk0khbnKZrJ1g-jl9BnULkp-RKplCO8aj/exec";
+const YT_ID = "Ae8Fm2iGtzo";
 const T = {
-  en: {
-    nRank:"Ranking",
-    tag:"A deckbuilder where position and direction make combat more tactical. Flank enemies with 8 attack directions and combine cards to win in any situation.",
-    lbTitle:"Online Leaderboard",cPlayer:"Player",cKD:"K/D",cLast:"Last duel",cOpp:"Opponent",
-    load:"Loading ranking…",empty:"No duels yet. Be the first!",err:"Couldn't load the ranking.",demo:"Sample data — connect your script URL to show the real ranking.",
-    W:"Win",L:"Loss",
-    c1t:"Buy on Steam",c1p:"Get Soul Card Duel and forge your legend.",
-    c3t:"Community",c3p:"Join the discussion on the Steam hub.",c3b:"Community hub",
-    c4t:"Follow on X",c4p:"News and updates from the developer.",c4b:"Open X",
-    vTitle:"Video tutorial",soon:"Tutorial video coming soon",
-    footer:"© Andoryu Learu · Soul Card Duel"
-  },
-  es: {
-    nRank:"Ranking",
-    tag:"Un deckbuilder donde la posición y la dirección hacen el combate más táctico. Flanquea enemigos con 8 direcciones de ataque y combina cartas para ganar en cualquier situación.",
-    lbTitle:"Ranking online",cPlayer:"Jugador",cKD:"K/D",cLast:"Último duelo",cOpp:"Rival",
-    load:"Cargando ranking…",empty:"Aún no hay duelos. ¡Sé el primero!",err:"No se pudo cargar el ranking.",demo:"Datos de ejemplo — conecta la URL de tu script para ver el ranking real.",
-    W:"Victoria",L:"Derrota",
-    c1t:"Comprar en Steam",c1p:"Consigue Soul Card Duel y forja tu leyenda.",
-    c3t:"Comunidad",c3p:"Únete a la conversación en el hub de Steam.",c3b:"Hub de la comunidad",
-    c4t:"Síguenos en X",c4p:"Novedades del desarrollador.",c4b:"Abrir X",
-    vTitle:"Video tutorial",soon:"Video tutorial próximamente",
-    footer:"© Andoryu Learu · Soul Card Duel"
-  }
+  en: { nRank:"Ranking", tag:"A deckbuilder where position and direction make combat more tactical. Flank enemies with 8 attack directions and combine cards to win in any situation.", lbTitle:"Online Leaderboard",cPlayer:"Player",cKD:"K/D",cLast:"Last duel",cOpp:"Opponent", load:"Loading ranking…",empty:"No duels yet. Be the first!",err:"Couldn't load the ranking.",demo:"Sample data — connect your script URL to show the real ranking.", W:"Win",L:"Loss", c1t:"Buy on Steam",c1p:"Get Soul Card Duel and forge your legend.", c3t:"Community",c3p:"Join the discussion on the Steam hub.",c3b:"Community hub", c4t:"Follow on X",c4p:"News and updates from the developer.",c4b:"Open X", vTitle:"Video tutorial",soon:"Tutorial video coming soon", footer:"© Andoryu Learu · Soul Card Duel" },
+  es: { nRank:"Ranking", tag:"Un deckbuilder donde la posición y la dirección hacen el combate más táctico. Flanquea enemigos con 8 direcciones de ataque y combina cartas para ganar en cualquier situación.", lbTitle:"Ranking online",cPlayer:"Jugador",cKD:"K/D",cLast:"Último duelo",cOpp:"Rival", load:"Cargando ranking…",empty:"Aún no hay duelos. ¡Sé el primero!",err:"No se pudo cargar el ranking.",demo:"Datos de ejemplo — conecta la URL de tu script para ver el ranking real.", W:"Victoria",L:"Derrota", c1t:"Comprar en Steam",c1p:"Consigue Soul Card Duel y forja tu leyenda.", c3t:"Comunidad",c3p:"Únete a la conversación en el hub de Steam.",c3b:"Hub de la comunidad", c4t:"Síguenos en X",c4p:"Novedades del desarrollador.",c4b:"Abrir X", vTitle:"Video tutorial",soon:"Video tutorial próximamente", footer:"© Andoryu Learu · Soul Card Duel" }
 };
-
 const $ = s => document.querySelector(s);
 let lang = "en", DATA = null, BANNERS = {}, DEMO = false;
 try { lang = localStorage.getItem("lang") || (navigator.language || "en").slice(0,2); } catch (e) { lang = (navigator.language || "en").slice(0,2); }
 if (!T[lang]) lang = "en";
-
-function safeUrl(u) { return typeof u === "string" && (u.startsWith("https://") || u.startsWith("/") || u.startsWith("assets/")); }
+function safeUrl(u) {
+  if (typeof u !== "string") return false;
+  try {
+    const url = new URL(u, location.href);
+    if (url.protocol !== "https:" && !u.startsWith("/") && !u.startsWith("assets/")) return false;
+    if (/^(javascript|data|vbscript|file):/i.test(u.trim())) return false;
+    return true;
+  } catch(e){ return u.startsWith("/") || u.startsWith("assets/"); }
+}
+function cleanText(v, max){ if (typeof v !== "number" && typeof v !== "string") return ""; return String(v).slice(0, max || 30); }
+function cleanNum(v){ const n = Number(v); return Number.isFinite(n) ? Math.max(0, Math.min(n, 9999)) : 0; }
 function el(tag, cls, txt) { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
 function norm(r) { r = String(r || "").trim().toLowerCase(); if (!r) return ""; return ("wv".includes(r[0])) ? "W" : ("dl".includes(r[0]) ? "L" : ""); }
-
+function getSteamId(p){
+  const candidates = [p.id, p.steamid, p.steamId, p.SteamID, p.jugadorId, p.playerId, p.steam_id, p.ID, p.uid, p.userid, p.userId, p.imagen, p.avatar];
+  for (const c of candidates){
+    if (c == null) continue;
+    const s = String(c).trim();
+    if (/^7656119\d{10}$/.test(s)) return s;
+    if (/^\d{17}$/.test(s)) return s;
+  }
+  if (typeof p.imagen === "string" && /^[a-zA-Z0-9_-]{2,32}$/.test(p.imagen.trim()) && !p.imagen.includes(".")) return p.imagen.trim();
+  return "";
+}
+// ===== CACHE RAPIDO: guarda la foto 6 horas en el navegador =====
+function getCachedAvatar(id){
+  try{
+    const raw = localStorage.getItem("avatar_" + id);
+    if (!raw) return null;
+    const j = JSON.parse(raw);
+    if (Date.now() - j.t > 6*60*60*1000) return null;
+    return j.url;
+  }catch(e){ return null; }
+}
+function setCachedAvatar(id, url){
+  try{ localStorage.setItem("avatar_" + id, JSON.stringify({url:url, t:Date.now()})); }catch(e){}
+}
 function setLang(l) {
   lang = l; try { localStorage.setItem("lang", l); } catch (e) {}
   document.documentElement.lang = l;
-  document.querySelectorAll("[data-i]").forEach(n => {
-    const k = n.dataset.i;
-    if (T[l][k] != null) n.textContent = T[l][k];
-  });
+  document.querySelectorAll("[data-i]").forEach(n => { const k = n.dataset.i; if (T[l][k] != null) n.textContent = T[l][k]; });
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.l === l));
   renderVideo(); render();
 }
-
 function renderVideo() {
   const v = $("#video"); v.textContent = "";
-  if (YT_ID) {
+  if (YT_ID && /^[A-Za-z0-9_-]{6,20}$/.test(YT_ID)) {
     const f = document.createElement("iframe");
     f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(YT_ID);
     f.allow = "accelerometer; encrypted-media; picture-in-picture"; f.allowFullscreen = true; f.title = "Soul Card Duel tutorial";
     v.appendChild(f);
   } else v.textContent = T[lang].soon;
 }
-
 function render() {
   const box = $("#rows"); box.textContent = "";
   $("#demo").hidden = !DEMO;
   if (DATA === null) { box.appendChild(el("p", "msg", T[lang].load)); return; }
   if (DATA === "error") { box.appendChild(el("p", "msg", T[lang].err)); return; }
-
   if (!DATA.length) { box.appendChild(el("p", "msg", T[lang].empty)); return; }
   const list = DATA.slice().sort((a, b) => (b.kd - a.kd) || (b.victorias - a.victorias)).slice(0, 50);
   list.forEach((p, i) => {
@@ -191,84 +182,152 @@ function render() {
     const bid = /^[a-z0-9_-]+$/i.test(p.banner || "") ? p.banner : "";
     const bn = BANNERS[bid] || (bid ? "/assets/banners/" + bid + ".webp" : "");
     if (safeUrl(bn)) { row.classList.add("hasbn"); row.style.setProperty("--bn", 'url("' + bn.replace(/["\\]/g, "") + '")'); }
-
     row.appendChild(el("span", "pos", "#" + (i + 1)));
-
     const pl = el("div", "pl");
-    if (safeUrl(p.imagen)) { const im = el("img", "av"); im.src = p.imagen; im.alt = ""; im.loading = "lazy"; pl.appendChild(im); }
-    else pl.appendChild(el("div", "av", (p.nombre || "?").charAt(0).toUpperCase()));
-    pl.appendChild(el("span", "", p.nombre || "—"));
+    // Si ya tenemos avatar (del Sheet o del caché) úsala de una
+    const foto = p.avatar || (typeof p.imagen === "string" && p.imagen.startsWith("https://") ? p.imagen : "");
+    if (foto && safeUrl(foto)) {
+      const im = el("img", "av");
+      im.src = foto; im.alt = ""; im.loading = "lazy"; im.referrerPolicy = "no-referrer";
+      im.onerror = () => { const letra = el("div", "av", (cleanText(p.nombre,1) || "?").charAt(0).toUpperCase()); im.replaceWith(letra); };
+      pl.appendChild(im);
+    } else {
+      const letra = el("div", "av", (cleanText(p.nombre,1) || "?").charAt(0).toUpperCase());
+      const sid = getSteamId(p);
+      if (sid) letra.dataset.steam = sid;
+      pl.appendChild(letra);
+    }
+    pl.appendChild(el("span", "", cleanText(p.nombre,30) || "—"));
     row.appendChild(pl);
-
-    row.appendChild(el("span", "kd", Number(p.kd || 0).toFixed(2)));
-
+    row.appendChild(el("span", "kd", cleanNum(p.kd).toFixed(2)));
     const r = norm(p.ultimoResultado), last = el("span");
     if (r) last.appendChild(el("span", "tag " + r, T[lang][r])); else last.textContent = "—";
     row.appendChild(last);
-
-    row.appendChild(el("span", "opp", p.ultimoRival || "—"));
+    row.appendChild(el("span", "opp", cleanText(p.ultimoRival,30) || "—"));
     box.appendChild(row);
   });
+  loadSteamAvatars();
 }
-
+async function fetchJSON(url){
+  const ctrl = new AbortController();
+  const t = setTimeout(()=>ctrl.abort(), 6000);
+  try{
+    const res = await fetch(url, {signal: ctrl.signal, credentials: "omit", cache: "no-store"});
+    if(!res.ok) throw new Error("api");
+    const txt = await res.text();
+    if(txt.length > 500000) throw new Error("too big");
+    try{ return JSON.parse(txt); }catch(e){ return {raw:txt}; }
+  } finally { clearTimeout(t); }
+}
+async function fetchSteamAvatarViaProxy(steamId){
+  // Solo 1 puente, el más rápido, con timeout corto
+  try{
+    const ctrl = new AbortController();
+    const t = setTimeout(()=>ctrl.abort(), 5000);
+    const res = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://steamcommunity.com/profiles/" + steamId + "/?xml=1"), {signal: ctrl.signal});
+    clearTimeout(t);
+    const txt = await res.text();
+    const m = txt.match(/<avatarFull><!\[CDATA\[(.*?)\]\]><\/avatarFull>/) || txt.match(/<avatarFull>(.*?)<\/avatarFull>/);
+    if (m && m[1] && m[1].startsWith("https://")) return m[1];
+  }catch(e){}
+  if (!/^\d+$/.test(steamId)){
+    try{
+      const res = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://steamcommunity.com/id/" + steamId + "/?xml=1"));
+      const txt = await res.text();
+      const m = txt.match(/<avatarFull><!\[CDATA\[(.*?)\]\]><\/avatarFull>/) || txt.match(/<avatarFull>(.*?)<\/avatarFull>/);
+      if (m && m[1] && m[1].startsWith("https://")) return m[1];
+    }catch(e){}
+  }
+  return "";
+}
+// ===== NUEVO: BUSCA TODAS LAS FOTOS AL MISMO TIEMPO, NO UNA POR UNA =====
+let loadingAvatars = false;
+async function loadSteamAvatars(){
+  if (loadingAvatars || !DATA) return;
+  loadingAvatars = true;
+  const pendientes = DATA.filter(p => !p.avatar && getSteamId(p));
+  // 1. Primero revisa el caché, eso es instantáneo
+  for (const p of pendientes){
+    const sid = getSteamId(p);
+    const cached = getCachedAvatar(sid);
+    if (cached){
+      p.avatar = cached;
+      const letraEl = document.querySelector('[data-steam="' + CSS.escape(sid) + '"]');
+      if (letraEl){
+        const im = el("img", "av");
+        im.src = cached; im.alt = ""; im.loading = "lazy"; im.referrerPolicy = "no-referrer";
+        im.onerror = () => { const letra = el("div", "av", (cleanText(p.nombre,1) || "?").charAt(0).toUpperCase()); im.replaceWith(letra); };
+        letraEl.replaceWith(im);
+      }
+    }
+  }
+  const falta = pendientes.filter(p => !p.avatar);
+  if (falta.length){
+    // 2. Busca todas las que faltan EN PARALELO, no en fila
+    await Promise.allSettled(falta.map(async (p) => {
+      const sid = getSteamId(p);
+      let avatar = "";
+      try{
+        const j = await fetchJSON(API_URL + "?action=avatar&id=" + encodeURIComponent(sid));
+        if (j && j.avatar && j.avatar.startsWith("https://")) avatar = j.avatar;
+      }catch(e){}
+      if (!avatar) avatar = await fetchSteamAvatarViaProxy(sid);
+      if (avatar && safeUrl(avatar)){
+        p.avatar = avatar;
+        setCachedAvatar(sid, avatar);
+        const letraEl = document.querySelector('[data-steam="' + CSS.escape(sid) + '"]');
+        if (letraEl){
+          const im = el("img", "av");
+          im.src = avatar; im.alt = ""; im.loading = "lazy"; im.referrerPolicy = "no-referrer";
+          im.onerror = () => { const letra = el("div", "av", (cleanText(p.nombre,1) || "?").charAt(0).toUpperCase()); im.replaceWith(letra); };
+          letraEl.replaceWith(im);
+        }
+      }
+    }));
+  }
+  loadingAvatars = false;
+}
 function demoData() {
   const n = [["Valkyra",3.4,"W","ShadowRen"],["Sir_Aldric",2.9,"W","Kaelith"],["ShadowRen",2.1,"L","Valkyra"],["Kaelith",1.8,"W","Morrigan"],["Morrigan",1.33,"L","Kaelith"],["Thorn",1.0,"W","Ashka"],["Ashka",0.7,"L","Thorn"]];
-  return n.map(x => ({nombre:x[0],kd:x[1],victorias:Math.round(x[1]*10),ultimoResultado:x[2],ultimoRival:x[3],imagen:"",banner:""}));
+  return n.map(x => ({nombre:x[0],kd:x[1],victorias:Math.round(x[1]*10),ultimoResultado:x[2],ultimoRival:x[3],imagen:"",banner:"", id:""}));
 }
-
 async function load() {
   render();
   if (!API_URL.startsWith("https://")) { DEMO = true; DATA = demoData(); render(); return; }
   try {
-    const [r, b] = await Promise.all([
-      fetch(API_URL + "?action=ranking").then(x => x.json()),
-      fetch(API_URL + "?action=banners").then(x => x.json()).catch(() => ({}))
-    ]);
-    if (!r.ok) throw new Error("api");
-    DATA = r.jugadores || [];
-    (b.banners || []).forEach(x => { BANNERS[x.id] = x.imagen; });
+    const [r, b] = await Promise.all([ fetchJSON(API_URL + "?action=ranking"), fetchJSON(API_URL + "?action=banners").catch(() => ({})) ]);
+    if (!r.ok && !Array.isArray(r.jugadores)) throw new Error("api");
+    const raw = Array.isArray(r.jugadores) ? r.jugadores.slice(0,50) : [];
+    DATA = raw.map(p => {
+      // Si el Sheet ya trae avatar, úsalo de una, sin buscar en Steam
+      const avatarDirecto = (typeof p.avatar === "string" && p.avatar.startsWith("https://")) ? p.avatar : (typeof p.imagen === "string" && p.imagen.startsWith("https://avatars.steamstatic.com/") ? p.imagen : "");
+      return {
+        ...p,
+        id: cleanText(p.id ?? p.steamid ?? p.steamId ?? p.SteamID ?? p.jugadorId ?? p.playerId ?? p.steam_id ?? p.ID ?? p.uid ?? "", 64),
+        nombre: cleanText(p.nombre,30),
+        kd: cleanNum(p.kd),
+        victorias: cleanNum(p.victorias),
+        ultimoResultado: cleanText(p.ultimoResultado,10),
+        ultimoRival: cleanText(p.ultimoRival,30),
+        imagen: typeof p.imagen === "string" ? p.imagen.slice(0,500) : "",
+        avatar: avatarDirecto ? avatarDirecto.slice(0,500) : "",
+        banner: /^[a-z0-9_-]+$/i.test(p.banner || "") ? p.banner : ""
+      };
+    });
+    (Array.isArray(b.banners) ? b.banners.slice(0,100) : []).forEach(x => { if(x && /^[a-z0-9_-]+$/i.test(x.id||"") && typeof x.imagen === "string" && safeUrl(x.imagen)) BANNERS[x.id] = x.imagen.slice(0,500); });
   } catch (e) { DATA = "error"; }
   render();
 }
-
-// ====== SONIDOS (sintetizados con Web Audio; el navegador los permite tras el primer clic) ======
 let AC = null, muted = false, lastEl = null;
 try { muted = localStorage.getItem("mute") === "1"; } catch (e) {}
-function audio() {
-  if (!AC) { const C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); }
-  if (AC && AC.state === "suspended") AC.resume();
-  return AC;
-}
-function tone(f1, f2, dur, vol, type) {
-  if (muted) return;
-  const a = audio(); if (!a || a.state !== "running") return;
-  const o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
-  o.type = type || "sine";
-  o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + dur);
-  g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur);
-}
+function audio() { if (!AC) { const C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); } if (AC && AC.state === "suspended") AC.resume(); return AC; }
+function tone(f1, f2, dur, vol, type) { if (muted) return; const a = audio(); if (!a || a.state !== "running") return; const o = a.createOscillator(), g = a.createGain(), t = a.currentTime; o.type = type || "sine"; o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + dur); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur); }
 const SEL = "a.btn,.nav a:not(.soon),.lang button,.sound";
 document.addEventListener("pointerdown", () => audio(), { once: true });
-document.addEventListener("mouseover", e => {
-  const t = e.target.closest(SEL);
-  if (t && t !== lastEl) tone(740, 1100, 0.07, 0.05, "sine");
-  lastEl = t || null;
-});
-document.addEventListener("click", e => {
-  if (!e.target.closest(SEL)) return;
-  tone(520, 260, 0.12, 0.09, "triangle");
-  setTimeout(() => tone(880, 1320, 0.1, 0.05, "sine"), 50);
-});
+document.addEventListener("mouseover", e => { const t = e.target.closest(SEL); if (t && t !== lastEl) tone(740, 1100, 0.07, 0.05, "sine"); lastEl = t || null; });
+document.addEventListener("click", e => { if (!e.target.closest(SEL)) return; tone(520, 260, 0.12, 0.09, "triangle"); setTimeout(() => tone(880, 1320, 0.1, 0.05, "sine"), 50); });
 const snd = $("#snd");
-if (snd) {
-  snd.classList.toggle("off", muted);
-  snd.addEventListener("click", () => {
-    muted = !muted; snd.classList.toggle("off", muted);
-    try { localStorage.setItem("mute", muted ? "1" : "0"); } catch (e) {}
-  });
-}
-
+if (snd) { snd.classList.toggle("off", muted); snd.addEventListener("click", () => { muted = !muted; snd.classList.toggle("off", muted); try { localStorage.setItem("mute", muted ? "1" : "0"); } catch (e) {} }); }
 document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.l)));
 setLang(lang);
 load();
